@@ -1,0 +1,28 @@
+//Archivo de Ejercicio2.js hecho en pseudocodigo
+
+ALGORITHM QuickSelect(A, left, right, k)
+    WHILE left ≤ right DO
+        pivotIndex ← Random(left, right)
+        pivot ← A[pivotIndex]
+
+        // Mover el pivote al final
+        Swap(A[pivotIndex], A[right])
+
+        // Partición
+        i ← left
+        FOR j ← left TO right - 1 DO
+            IF A[j] < pivot THEN
+                Swap(A[i], A[j])
+                i ← i + 1
+                
+        Swap(A[i], A[right])
+
+        // Comparar la posición del pivote con k
+        IF i = k THEN
+            RETURN A[i]
+        ELSE IF i < k THEN
+            left ← i + 1
+        ELSE
+            right ← i - 1
+
+    RETURN NULL
